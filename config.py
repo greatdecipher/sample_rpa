@@ -68,11 +68,20 @@ class PywinConfig:
 
 class CellValues:
     loader_eff_start = '* Effective Start Date'
-    loader_eff_start_2 = 'Effective Start Date'
     loader_atb_rate = 'ATB Rate'
-    cloud_eff_start = 'Effective Start Date (Based from report Effective Start Date) mm/dd/yyyy'
-    cloud_atb_rate = 'ATB Rate (New ATB Rate)'
-    
+    cloud_eff_start = 'Effective Start Date'
+    cloud_atb_rate = 'ATB Rate'
+    leftmost_col = 'Changed'
+    rightmost_col = 'Key'
+
+class Labels:
+    loader_existing_atb = "Loader_Existing"
+    loader_with_atb = "Loader_with"
+    loader_without_atb = "Loader_Without"
+    cloud_existing = "Cloud_Existing"
+    cloud_with = "Cloud_With"
+    cloud_without = "Cloud_Without"
+
 class Colors:
     """ ANSI color codes """
     RED = "\u001b[31m"
@@ -88,7 +97,12 @@ class ExcelFilePath:
     sample_excel = r"./excel_files\Loader_CSG_Manage Existing ATB(4).xlsx"
     sample_excel_two = r"./excel_files\Loader_CSG_Manage Existing ATB(2).xlsx"
     test_existing_atb_loader = r"./test_files\Loader_CSG_Manage Existing ATB.xlsx"
-    test_existing_cloud = r"./test_files\Cloud Build Existing ATB.xlsx"
+    test_with_atb_loader = r"./test_files\Loader_CSG_Manage Grades with ATB.xlsx"
+    test_without_atb_loader = r"./test_files\Loader_CSG_Manage Grades without ATB.xlsx"
+    test_existing_cloud = r"./test_files\Cloud Build Existing ATB Loader.xlsx"
+    test_with_cloud = r"./test_files\Cloud Build With ATB Loader.xlsx"
+    test_without_cloud = r"./test_files\Cloud Build Without ATB Loader.xlsx"
+    match_existing_loader = r"./test_files\LOADER Manage Existing ATB - Matched File.xlsx"
 
 
 status_comment = {
