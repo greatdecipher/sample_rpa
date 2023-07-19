@@ -3,20 +3,18 @@ from config import ExcelFilePath, Colors, CellValues, Labels
 
 class OpenExcel:
     def __init__(self, path_excel):
+        self.loader_myaci = None
         self.path_excel = path_excel
 
-    def workbook(self):
-        self.wb = openpyxl.load_workbook(self.path_excel)
-        self.sheet = self.wb.active
-        return self.sheet
+        wb = openpyxl.load_workbook(self.path_excel)
+        self.sheet = wb.active
     
     # getting cell range base on first and last column of cloud build.
     def get_cell_range(self, text_value):
             for row in self.sheet.iter_rows(min_row=1, min_col=1, max_row=30, max_col=100):
                 for cell in row:
                     if cell.value == text_value:
-                        cell_name = str(cell.column_letter) + str(cell.row)
-                        return cell_name
+                        return cell.coordinate
                     
     #getting values and adding it on a list                
     def cell_values_between(self, range_left, range_right):
@@ -29,12 +27,12 @@ class OpenExcel:
         return list_val
 
     #getting all range and cell values.
-    def range_and_values(self, start_value, end_value, file_type):
-        min = file_type.get_cell_range(start_value)
+    def range_and_values(self, start_value, end_value):
+        min = self.get_cell_range(start_value)
         print(f"Leftmost cell = {Colors.YELLOW}{min}{Colors.RESET}")
-        max = file_type.get_cell_range(end_value)
+        max = self.get_cell_range(end_value)
         print(f"Rightmost cell = {Colors.YELLOW}{max}{Colors.RESET}")
-        listing = file_type.cell_values_between(min,max)
+        listing = self.cell_values_between(min,max)
         print(f"{Colors.BLUE}{listing}{Colors.RESET}")
         return listing
     
@@ -58,49 +56,69 @@ class OpenExcel:
                 
 
         if len(length_checker) == len(loader_list):
-            print(f"{Colors.GREEN}{len(length_checker)} Matches{Colors.RESET}")
+            print(f"{Colors.GREEN}{len(length_checker)}/{len(cloud_list)} Matches{Colors.RESET}")
             print((f"{Colors.GREEN}PASSED: No Changes In The Loader File{Colors.RESET}"))
         else:
-            print(f"{Colors.RED}{len(length_checker)} Matches{Colors.RESET}")
+            print(f"{Colors.RED}{len(length_checker)}/{len(cloud_list)} Matches{Colors.RESET}")
             print(f"{Colors.RED}Loader File Columns Doesn't Matched Cloud Build {Colors.RESET}")
-            print(f"{Colors.RED}FAILED: Need to update Loader file {Colors.RESET}")
+            print(f"{Colors.RED}FAILED: Need to update MyACI Loader file {Colors.RESET}")
 
     def validate_loader_file(self):
-        loader_myaci = OpenExcel(self.path_excel)
-        loader_myaci.workbook()
-        loader_list = loader_myaci.range_and_values(CellValues.leftmost_col,
-                        CellValues.rightmost_col, loader_myaci)   
-        print('=======================================================')
+        loader_list = self.range_and_values(CellValues.leftmost_col,
+                        CellValues.rightmost_col)   
+        print('='* 50)
         #based loader file
         match self.path_excel:
             case ExcelFilePath.test_existing_atb_loader:
+                cloud_loader = OpenExcel(ExcelFilePath.test_existing_cloud)
+            #match file to test
+            case ExcelFilePath.match_existing_loader:
                 cloud_loader = OpenExcel(ExcelFilePath.test_existing_cloud)
             case ExcelFilePath.test_with_atb_loader:
                 cloud_loader = OpenExcel(ExcelFilePath.test_with_cloud)
             case ExcelFilePath.test_without_atb_loader:
                 cloud_loader = OpenExcel(ExcelFilePath.test_without_cloud)
 
-        cloud_loader.workbook()
         cloud_list = cloud_loader.range_and_values(CellValues.leftmost_col,
-                        CellValues.rightmost_col, cloud_loader)   
+                        CellValues.rightmost_col)   
         
         #number of columns checker
-        loader_myaci.number_of_columns(loader_list,cloud_list)
+        self.number_of_columns(loader_list,cloud_list)
 
-        print('=======================================================')
+        print('='* 50)
         #exact match checker for loader and cloud loader 'bound to fail'
-        loader_myaci.exact_match(loader_list, cloud_list)
+        self.exact_match(loader_list, cloud_list)
+    
+    def copy_cb_to_loader(self):
+        first_col = self.get_cell_range(CellValues.leftmost_col)
+        last_col = self.get_cell_range(CellValues.rightmost_col)
 
+        range = self.sheet[first_col:last_col]
 
+        for row in range:
+            for col in row:
+                # cb_len = get length of cloud build df
+
+                # col_range = self.sheet[col + 1, col + cb_len]
+                print(col.value)
+
+            
+
+        
+    
 
 if __name__=="__main__":
     existing_atb = OpenExcel(ExcelFilePath.test_existing_atb_loader)
     with_atb = OpenExcel(ExcelFilePath.test_with_atb_loader)
     without_atb = OpenExcel(ExcelFilePath.test_without_atb_loader)
+    matched_existing = OpenExcel(ExcelFilePath.match_existing_loader)
 
-    without_atb.validate_loader_file()
+    #without_atb.validate_loader_file()
     #with_atb.validate_loader_file()
     #existing_atb.validate_loader_file()
+    matched_existing.validate_loader_file()
+    matched_existing.copy_cb_to_loader()
+    #matched_existing.copy_cloud_build()
     
     
 
