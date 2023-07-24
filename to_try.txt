@@ -1,0 +1,104 @@
+first_col_cloud = self.cloud_build.get_cell_range("Effective Start Date (Based from report Effective Start Date) mm/dd/yyyy")
+        last_col_cloud = self.cloud_build.get_cell_range("ATB Rate (New ATB Rate)")
+        value_list = []
+        iterate_list = []
+        
+        cloud_column_val = self.cloud_build.sheet[first_col_cloud:last_col_cloud]
+        for header in cloud_column_val:
+            for val in header:
+                for row in self.cloud_build.sheet[val.column_letter]:
+                    iterate_list.append(row.value)
+                    iterate_list.pop(0)
+    
+        print(value_list)
+        for nest in value_list:
+            for data in nest:
+                self.loader_receive(data)
+        #self.wb.save('./test_files\sample12.xlsx')
+        print('document updated')
+
+
+    def loader_receive(self, data):
+        # first_col_loader = self.get_cell_range("Effective Start Date")
+        # last_col_loader = self.get_cell_range("ATB Rate")
+        loader_column_val = self.sheet['F27':'M27']
+        for header in loader_column_val:
+            for val in header:
+                for row in self.sheet[val.column_letter]:
+                    row.value = data
+        # print(data)
+        # for r in range(27, 100):
+        #     for c in range(6, 14):
+        #         self.sheet.cell(row=r, column=c).value = data
+    
+
+        # self.sheet.cell(row=r, column=c).value = data
+        # self.sheet['B27'] = "For testing purposes"
+        # self.sheet['B28'] = "Checking to populate"
+        # self.sheet['C29'] = "Just to check"
+        # self.wb.save('./test_files\sample1.xlsx')
+        # print("Document updated")
+
+
+======================================================
+
+        maxr = self.cloud_build.sheet.max_row
+        print(maxr)
+        maxc = self.cloud_build.sheet.max_column
+        print(maxc)
+
+        
+        for r in range(2, maxr + 1):
+            for c in range(1, maxc + 1):
+                values_cloud_build = self.cloud_build.sheet.cell(row = r, column=c).value
+                self.loader_receive("robin")
+                print(values_cloud_build)
+
+
+
+
+
+
+=================ANOTHER DUMP=============================
+ def copy_cb_to_loader(self):
+        #returns a list of headers
+        loader_focused_headers = self.range_and_values("Effective Start Date","ATB Rate")
+       
+        for i in loader_focused_headers:
+            loader_iter_cols = self.get_col_index(i)
+            for a in range(27, 60):
+                for b in range(loader_iter_cols, loader_iter_cols + 1):
+                    self.sheet.cell(row=a, column=b).value = self.cloud_data()
+
+
+        self.wb.save('./test_files\sample25.xlsx')
+
+    def cloud_data(self):
+        cloud_focused_headers = self.cloud_build.range_and_values("Effective Start Date (Based from report Effective Start Date) mm/dd/yyyy",
+                        "ATB Rate (New ATB Rate)")
+        maxr = self.cloud_build.sheet.max_row
+        for j in cloud_focused_headers:
+            cloud_iter_cols = self.get_col_index(j)
+            for r in range(2,maxr + 1): 
+                for c in range(1,2):
+                    data_eng = self.sheet.cell(row=r, column=c).value
+                    return data_eng
+
+==========================================================================
+        #returns a list of headers
+        # loader_focused_headers = self.range_and_values("Effective Start Date","ATB Rate")
+        # cloud_focused_headers = self.cloud_build.range_and_values("Effective Start Date (Based from report Effective Start Date) mm/dd/yyyy",
+        #                 "ATB Rate (New ATB Rate)")
+        # maxr = self.cloud_build.sheet.max_row
+        # for index in range(len(cloud_focused_headers)):
+        #     print(index + 1)  
+
+        # for i in loader_focused_headers:    
+        #     loader_iter_cols = self.get_col_letter(i)
+        #     print(loader_iter_cols)
+        #     for r in range(2, maxr + 1):
+        #         for index in range(len(cloud_focused_headers)):
+        #             for c in range(index + 1,index + 2):
+        #                 for a in range(27, maxr + 28):
+        #                     for b in range(loader_iter_cols, loader_iter_cols + 1):
+        #                         self.sheet.cell(row=a, column=b).value = self.cloud_build.sheet.cell(row=r, column=c).value

@@ -4,12 +4,12 @@ link_management = {
     'with_atb' : '',
     'without_atb': '',
     'data_exchange': 'https://eofd.fa.us6.oraclecloud.com/hcmUI/faces/FndOverview?fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&fndGlobalItemNodeId=itemNode_workforce_management_data_exchange&_adf.ctrl-state=30d8gy3in_1&_adf.no-new-window-redirect=true&_afrLoop=1349124877220069&_afrWindowMode=2&_afrWindowId=null&_afrFS=16&_afrMT=screen&_afrMFW=1280&_afrMFH=609&_afrMFDW=1280&_afrMFDH=720&_afrMFC=8&_afrMFCI=0&_afrMFM=0&_afrMFR=144&_afrMFG=0&_afrMFS=0&_afrMFO=0',
-    'dev_spreadsheets': 'https://eofd-dev8.fa.us6.oraclecloud.com/hcmUI/faces/FndOverview?fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&fndGlobalItemNodeId=itemNode_workforce_management_data_exchange&_afrLoop=1619264466686511&_afrWindowMode=0&_afrWindowId=lvvxun6ci&_adf.ctrl-state=1a21m5fx5h_1&_afrFS=16&_afrMT=screen&_afrMFW=1280&_afrMFH=609&_afrMFDW=1280&_afrMFDH=720&_afrMFC=8&_afrMFCI=0&_afrMFM=0&_afrMFR=144&_afrMFG=0&_afrMFS=0&_afrMFO=0',
+    'dev_spreadsheets': 'https://eofd-dev10.fa.us6.oraclecloud.com/hcmUI/faces/FndOverview?fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&fndGlobalItemNodeId=itemNode_workforce_management_data_exchange&_afrLoop=1619264466686511&_afrWindowMode=0&_afrWindowId=lvvxun6ci&_adf.ctrl-state=1a21m5fx5h_1&_afrFS=16&_afrMT=screen&_afrMFW=1280&_afrMFH=609&_afrMFDW=1280&_afrMFDH=720&_afrMFC=8&_afrMFCI=0&_afrMFM=0&_afrMFR=144&_afrMFG=0&_afrMFS=0&_afrMFO=0',
 }
 
 selectors_management = {
     'sso_button': '#ssoBtn',
-    'dev8_filluser': '#i0116',
+    'dev10_filluser': '#i0116',
     'next_button': '#idSIButton9',
     'input_pass': '#passwordInput',
     'submit_login' : 'span#submitButton',
@@ -33,7 +33,8 @@ filter_text = {
 
 creds = {
     'user_name' : 'erey118@safeway.com',
-    'pass_word' : 'aw6_MPKA7K',
+    'user': 'erey118',
+    'pass_word' : 'Qkgu_8HCna',
     'gen_key' : '62hnq7fcnbhs5bfr',
 }
 
@@ -103,7 +104,9 @@ class ExcelFilePath:
     test_with_cloud = r"./test_files\Cloud Build With ATB Loader.xlsx"
     test_without_cloud = r"./test_files\Cloud Build Without ATB Loader.xlsx"
     match_existing_loader = r"./test_files\LOADER Manage Existing ATB - Matched File.xlsx"
-
+    cloud_build_existing = r"./test_files\Cloud Build existing ATB.xlsx"
+    cloud_build_with = r"./test_files\Cloud Build with ATB.xlsx"
+    cloud_build_without = r"./test_files\Cloud Build wo ATB.xlsx"
 
 status_comment = {
     'start':"Starting Application",
