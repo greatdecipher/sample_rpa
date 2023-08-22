@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.albertsons</groupId>
+		<artifactId>argus</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.albertsons.argus.userlogin</groupId>
+	<artifactId>argus-user-login</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>argus-user-login</name>
+	<description>Project for scheduled login for bot users</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.albertsons.argus</groupId>
+			<version>0.0.2-SNAPSHOT</version>
+			<artifactId>mail</artifactId>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.albertsons.argus</groupId>
+			<version>${project.version}</version>
+			<artifactId>domain</artifactId>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.azure.spring/spring-cloud-azure-starter-keyvault-secrets -->
+		<dependency>
+			<groupId>com.azure.spring</groupId>
+			<artifactId>spring-cloud-azure-starter-keyvault-secrets</artifactId>
+			<version>4.3.0</version>
+		</dependency>
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.albertsons.argus.ArgusUserLoginApplication</mainClass>
+					<classifier>exec</classifier>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.3.0</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/resources/distribution/argus-spring-boot-distribution.xml</descriptor>
+					</descriptors>
+					<finalName>argus-spring-boot-distribution</finalName>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<!-- <resources>
+							<resource>
+							<directory>src/main/resources</directory>
+							<excludes>
+							<exclude>**/*</exclude>
+							</excludes>
+							<filtering>false</filtering>
+							</resource>
+							</resources> -->
+					</build>
+
+</project>

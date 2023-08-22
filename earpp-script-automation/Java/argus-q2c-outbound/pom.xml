@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.albertsons</groupId>
+		<artifactId>argus</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<groupId>com.albertsons.argus.q2c.outbound</groupId>
+	<artifactId>argus-q2c-outbound</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>argus-q2c-outbound</name>
+	<description>Argus Project</description>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.albertsons.argus</groupId>
+			<version>0.0.2-SNAPSHOT</version>
+			<artifactId>mail</artifactId>
+			<!-- <type>jar</type> -->
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.microsoft.playwright</groupId>
+			<artifactId>playwright</artifactId>
+			<version>1.19.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sourceforge.tess4j</groupId>
+			<artifactId>tess4j</artifactId>
+			<version>5.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.albertsons.argus</groupId>
+			<version>${project.version}</version>
+			<artifactId>domain</artifactId>
+			<!-- <type>jar</type>-->
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- <dependency>
+			<groupId>com.albertsons.argus</groupId>
+			<version>${project.version}</version>
+			<artifactId>domain-db-q2c</artifactId>
+			<scope>compile</scope>
+		</dependency> -->
+		<dependency>
+			<groupId>com.albertsons.argus</groupId>
+			<artifactId>data-q2c</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.albertsons.argus</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>argus-webservice</artifactId>
+			<!-- <type>jar</type> -->
+			<scope>compile</scope>
+		</dependency>
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.albertsons.argus.ArgusQ2CApplication</mainClass>
+					<classifier>exec</classifier>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.3.0</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/resources/distribution/argus-q2c-spring-boot-distribution.xml</descriptor>
+					</descriptors>
+					<finalName>argus-spring-boot-distribution</finalName>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

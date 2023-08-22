@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.albertsons</groupId>
+		<artifactId>argus</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.albertsons</groupId>
+	<artifactId>argus-automation-nagware</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>argus-automation-nagware</name>
+	<description>PMO: Weekly Resource Allocation Update Nagware</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.albertsons.argus</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>domain</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.albertsons.argus</groupId>
+			<version>0.0.2-SNAPSHOT</version>
+			<artifactId>mail</artifactId>
+			<!-- <type>jar</type> -->
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.albertsons.argus</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>argus-webservice</artifactId>
+			<!-- <type>jar</type> -->
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>4.1.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>4.1.2</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.albertsons.argus.ArgusAutomationNagwareApplication</mainClass>
+					<classifier>exec</classifier>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

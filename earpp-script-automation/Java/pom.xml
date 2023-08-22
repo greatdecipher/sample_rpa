@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+									xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.12</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	
+	<groupId>com.albertsons</groupId>
+	<artifactId>argus</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<description>Argus Web</description>
+	
+	<properties>
+		<java.version>1.8</java.version>  
+		<log4j2.version>2.17.1</log4j2.version> 
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	<modules>
+		<module>data</module>
+		<module>domain-db</module>
+		<module>domain-db-r2r</module>
+		<module>data-r2r</module>
+		<module>data-q2c</module>
+		<module>domain</module>
+		<module>domain-db-q2c</module>
+		<module>argus-hire</module>
+		<module>argus-automation-tma</module>
+		<module>mail</module>
+		<module>argus-rundb</module>
+		<module>argus-toggle</module>
+		<module>argus-automation-mim</module>
+		<module>argus-automation-mim-dirmon</module>
+		<module>argus-r2r-scheduler</module>
+		<module>argus-r2r</module>
+    	<module>argus-automation-asn</module>
+		<module>argus-webservice</module>
+		<module>argus-q2c</module>
+		<module>argus-q2c-outbound</module>
+		<module>argus-q2c-scheduler</module>
+		<module>argus-weekly-out-chg</module>
+		<module>argus-automation-wic-fnv</module>
+		<module>argus-automation-wic-fnv-api</module>
+		<module>argus-automation-ip</module>
+		<module>argus-weekly-cls-chg</module>
+		<module>argus-sla</module>
+		<module>argus-automation-patching-ctask</module>
+		<module>argus-automation-nagware</module>
+		<module>argus-user-login</module>
+		<module>argus-automation-mim-monitoring</module>
+		<module>argus-automation-sd-eps</module>
+    <module>argus-automation-lexmark-order</module>
+    <module>argus-automation-sedgwick</module>
+		<!-- 
+			<module>db-compare-batch</module>
+			<module>argus-servicenow-web</module>
+		<module>argus-batch-meraki</module> 
+		<module>argus-account-unlock</module>
+		-->
+	</modules>
+
+</project>

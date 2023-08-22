@@ -1,0 +1,200 @@
+﻿Java/argus-automation-asn/.mvn
+Java/argus-automation-ip/.mvn
+Java/argus-automation-asn/mvnw
+Java/argus-automation-asn/mvnw.cmd
+Java/argus-automation-ip/mvnw
+Java/argus-automation-ip/mvnw.cmd
+Java/argus-automation-mim/.mvn
+Java/argus-automation-mim/mvnw
+Java/argus-automation-mim/mvnw.cmd
+Java/argus-automation-mim-dirmon/.mvn
+Java/argus-automation-mim-dirmon/mvnw
+Java/argus-automation-mim-dirmon/mvnw.cmd
+Java/argus-automation-mim-monitoring/.mvn
+Java/argus-automation-mim-monitoring/mvnw
+Java/argus-automation-mim-monitoring/mvnw.cmd
+Java/argus-automation-nagware/.mvn
+Java/argus-automation-nagware/mvnw
+Java/argus-automation-nagware/mvnw.cmd
+Java/argus-automation-patching-ctask/.mvn
+Java/argus-automation-patching-ctask/mvnw
+Java/argus-automation-patching-ctask/mvnw.cmd
+Java/argus-automation-tma/mvnw
+Java/argus-automation-tma/mvnw.cmd
+Java/argus-automation-wic-fnv/.mvn
+Java/argus-automation-wic-fnv/mvnw
+Java/argus-automation-wic-fnv/mvnw.cmd
+Java/argus-automation-wic-fnv-api/.mvn
+Java/argus-automation-wic-fnv-api/mvnw
+Java/argus-automation-wic-fnv-api/mvnw.cmd
+Java/argus-batch-meraki/.mvn
+Java/argus-batch-meraki/mvnw
+Java/argus-batch-meraki/mvnw.cmd
+Java/argus-q2c/.mvn
+Java/argus-q2c/mvnw
+Java/argus-q2c/mvnw.cmd
+Java/argus-q2c-outbound/.mvn
+Java/argus-q2c-outbound/mvnw
+Java/argus-q2c-outbound/mvnw.cmd
+Java/argus-q2c-scheduler/.mvn
+Java/argus-q2c-scheduler/mvnw
+Java/argus-q2c-scheduler/mvnw.cmd
+Java/argus-r2r/.mvn
+Java/argus-r2r/mvnw
+Java/argus-r2r/mvnw.cmd
+Java/argus-r2r-scheduler/.mvn
+Java/argus-r2r-scheduler/mvnw
+Java/argus-r2r-scheduler/mvnw.cmd
+Java/argus-rundb/mvnw
+Java/argus-rundb/mvnw.cmd
+Java/argus-servicenow-web/mvnw
+Java/argus-servicenow-web/mvnw.cmd
+Java/argus-toggle/.mvn
+Java/argus-toggle/mvnw
+Java/argus-toggle/mvnw.cmd
+Java/argus-webservice/.mvn
+Java/argus-webservice/mvnw
+Java/argus-webservice/mvnw.cmd
+Java/argus-weekly-cls-chg/.mvn
+Java/argus-weekly-cls-chg/mvnw
+Java/argus-weekly-cls-chg/mvnw.cmd
+Java/argus-weekly-out-chg/.mvn
+Java/argus-weekly-out-chg/mvnw
+Java/argus-weekly-out-chg/mvnw.cmd
+Java/mail/mvnw
+Java/mail/mvnw.cmd
+Java/argus-automation-sd-eps/.mvn
+Java/argus-automation-sd-eps/mvnw
+Java/argus-automation-sd-eps/mvnw.cmd
+Java/argus-automation-sedgwick/mvnw
+Java/argus-automation-sedgwick/mvnw.cmd
+Java/argus-automation-sedgwick/.mvn
+.vscode/settings.json
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# io folders
+ExistingATB/
+WithATB/
+WithoutATB/
+Existing/
+NewRecord/
+
+# mac dev artifacts
+.DS_Store
+
+.idea
+*.dat

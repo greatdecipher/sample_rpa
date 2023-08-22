@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="LOGS" value="/Automations/Argus/logs/" />
+	<springProperty scope="context" name="application.name" source="spring.application.name" />
+	<springProfile name="prod">
+		<appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${LOGS}/argus-lexmark.log</file>
+			<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+				<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+			</encoder>
+			<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+				<fileNamePattern>/Automations/Argus/logs/argus-lexmark-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+				<maxFileSize>250KB</maxFileSize> 
+				<maxHistory>50</maxHistory> 
+				<totalSizeCap>50MB</totalSizeCap> 
+				<cleanHistoryOnStart>true</cleanHistoryOnStart>
+        	</rollingPolicy>
+		</appender>
+		<root level="info">
+			<appender-ref ref="RollingFile" />
+		</root>
+	</springProfile>
+</configuration>

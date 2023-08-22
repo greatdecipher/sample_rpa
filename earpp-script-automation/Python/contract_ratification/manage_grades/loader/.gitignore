@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+pyauto_images/
+.pytest_cache/
+data.txt
+excel_connector.py
+test_files/
+dump.txt
+
