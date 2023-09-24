@@ -36,7 +36,7 @@ creds = {
     'user_name' : 'erey118@safeway.com',
     'user': 'erey118',
     'pass_word' : 'Qkgu_8HCna',
-    'gen_key' : os.environ.get('MFA_CODE),
+    'gen_key' : os.environ.get('MFA_CODE'),
 }
 
 
