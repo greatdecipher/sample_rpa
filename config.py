@@ -1,3 +1,4 @@
+import os
 link_management = {
     'common_albertsons': 'https://albehcm-dev.opc.albertsons.com/psp/ALBEHDEV/?cmd=login&languageCd=ENG',
     'existing_atb' : 'https://eofd.fa.us6.oraclecloud.com/analytics/saw.dll?bipublisherEntry&Action=open&itemType=.xdo&bipPath=%2FCustom%2FHuman%20Capital%20Management%2FWorkforce%20Management%2FPublisher%20Objects%2FReport%2FCSG_Manage%20Existing%20ATB%20Report.xdo&path=%2Fshared%2FCustom%2FHuman%20Capital%20Management%2FWorkforce%20Management%2FPublisher%20Objects%2FReport%2FCSG_Manage%20Existing%20ATB%20Report.xdo',
@@ -35,7 +36,7 @@ creds = {
     'user_name' : 'erey118@safeway.com',
     'user': 'erey118',
     'pass_word' : 'Qkgu_8HCna',
-    'gen_key' : '62hnq7fcnbhs5bfr',
+    'gen_key' : os.environ.get('MFA_CODE),
 }
 
 
